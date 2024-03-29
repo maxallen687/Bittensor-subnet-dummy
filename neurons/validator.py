@@ -25,6 +25,7 @@ import bittensor as bt
 
 # Bittensor Validator Template:
 import template
+from template.parser import ComputeArgPaser
 from template.validator import forward
 
 # import base validator class which takes care of most of the boilerplate
@@ -41,6 +42,8 @@ class Validator(BaseValidatorNeuron):
     """
 
     def __init__(self, config=None):
+        parser = ComputeArgPaser(description="This script aims to help miners with the subnet.", wallet_name="validator")
+        config = bt.config(parser)
         super(Validator, self).__init__(config=config)
 
         bt.logging.info("load_state()")

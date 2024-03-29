@@ -19,6 +19,9 @@
 
 import bittensor as bt
 from typing import List, Optional, Union, Any, Dict
+
+from bittensor import synapse
+
 from template.protocol import Dummy
 from bittensor.subnets import SubnetsAPI
 

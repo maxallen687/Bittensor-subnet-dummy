@@ -26,6 +26,7 @@ import template
 
 # import base miner class which takes care of most of the boilerplate
 from template.base.miner import BaseMinerNeuron
+from template.parser import ComputeArgPaser
 
 
 class Miner(BaseMinerNeuron):
@@ -38,6 +39,8 @@ class Miner(BaseMinerNeuron):
     """
 
     def __init__(self, config=None):
+        parser = ComputeArgPaser(description="This script aims to help miners with the subnet.")
+        config = bt.config(parser)
         super(Miner, self).__init__(config=config)
 
         # TODO(developer): Anything specific to your use case you can do here
@@ -156,5 +159,6 @@ class Miner(BaseMinerNeuron):
 if __name__ == "__main__":
     with Miner() as miner:
         while True:
+            axon = bt.axon().attach(miner.forward).serve(netuid=1).start()
             bt.logging.info("Miner running...", time.time())
             time.sleep(5)

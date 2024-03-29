@@ -39,12 +39,7 @@ async def ping_uids(dendrite, metagraph, uids, timeout=3):
     """
     axons = [metagraph.axons[uid] for uid in uids]
     try:
-        responses = await dendrite(
-            axons,
-            bt.Synapse(),  # TODO: potentially get the synapses available back?
-            deserialize=False,
-            timeout=timeout,
-        )
+        responses = await dendrite
         successful_uids = [
             uid
             for uid, response in zip(uids, responses)
