@@ -14,7 +14,7 @@ This is a simple Bittensor subnet that implements a dummy forward pass. The purp
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/eliasful/subnet-bittensor-dummy.git
+   git clone https://github.com/eliasful/bittensor-subnet-dummy.git
 
 ### Install dependencies:
 
